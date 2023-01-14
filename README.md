@@ -1,4 +1,4 @@
-# Malicious-URL-detection
+# Malicious-URL-Creation and Detection
 DL + ML: Malicious URL detection (Phishing URL) (Pinku)
 
 *Phishing URL detection refers to the process of identifying and blocking fraudulent URLs that are used in phishing attacks. This can be done through a variety of methods, including:
