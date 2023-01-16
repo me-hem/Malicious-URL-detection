@@ -1,13 +1,14 @@
 **### System architecture for prediction of phishing URL**
 
-Figure 1 shows the system architecture for detecting phishing URL. The foremost objective of this system is to identify an URL that is provided as input as a phished URL or
-not. The proposed method consists of two phases (1) URL search phase and (2) feature extraction phase. In the URL search phase, once the user accesses/requests an URL, a
-search is carried out to check whether the given URL is in the repository of legitimate
-URLs. If a match is found in the repository, then the URL is considered to be a legitimate
-URL. Otherwise the URL is not a legitimate URL and it undergoes the next phase. The
-main reason for carrying out the search phase before the feature extraction phase is it
-reduces the unnecessary computation during the feature extraction phase and improves
-the overall response time of the system. In the Feature extraction phase, we have defined
-heuristics to extract 14 features from the URL and are subjected to association rule mining to determine the legitimate and phished URL.
-![xyz](https://user-images.githubusercontent.com/55020540/212734883-42f7001c-9828-434a-a0bd-937cac76de68.png)
+    Figure 1 shows the system architecture for detecting phishing URL. The foremost objective of this system is to identify an URL that is provided as input as a phished URL or
+    not. The proposed method consists of two phases (1) URL search phase and (2) feature extraction phase. In the URL search phase, once the user accesses/requests an URL, a
+    search is carried out to check whether the given URL is in the repository of legitimate
+    URLs. If a match is found in the repository, then the URL is considered to be a legitimate
+    URL. Otherwise the URL is not a legitimate URL and it undergoes the next phase. The
+    main reason for carrying out the search phase before the feature extraction phase is it
+    reduces the unnecessary computation during the feature extraction phase and improves
+    the overall response time of the system. In the Feature extraction phase, we have defined
+    heuristics to extract 14 features from the URL and are subjected to association rule mining to determine the legitimate and phished URL.
+    
+    Figure 1: ![xyz](https://user-images.githubusercontent.com/55020540/212734883-42f7001c-9828-434a-a0bd-937cac76de68.png)
 
