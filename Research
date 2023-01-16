@@ -1,7 +1,8 @@
 * System architecture for prediction of phishing URL
 
     Figure 1 shows the system architecture for detecting phishing URL. The foremost objective of this system is to identify an URL that is provided as input as a phished URL or
-    not. The proposed method consists of two phases (1) URL search phase and (2) feature extraction phase. In the URL search phase, once the user accesses/requests an URL, a
+    not. 
+    The proposed method consists of two phases (1) URL search phase and (2) feature extraction phase. In the URL search phase, once the user accesses/requests an URL, a
     search is carried out to check whether the given URL is in the repository of legitimate
     URLs. If a match is found in the repository, then the URL is considered to be a legitimate
     URL. Otherwise the URL is not a legitimate URL and it undergoes the next phase. The
