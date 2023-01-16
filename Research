@@ -1,39 +1,38 @@
 * System architecture for prediction of phishing URL
 
-    Figure 1 shows the system architecture for detecting phishing URL. The foremost objective of this system is to identify an URL that is provided as input as a phished URL or
-    not. 
-    The proposed method consists of two phases (1) URL search phase and (2) feature extraction phase. In the URL search phase, once the user accesses/requests an URL, a
-    search is carried out to check whether the given URL is in the repository of legitimate
-    URLs. If a match is found in the repository, then the URL is considered to be a legitimate
-    URL. Otherwise the URL is not a legitimate URL and it undergoes the next phase. The
-    main reason for carrying out the search phase before the feature extraction phase is it
-    reduces the unnecessary computation during the feature extraction phase and improves
-    the overall response time of the system. In the Feature extraction phase, we have defined
-    heuristics to extract 14 features from the URL and are subjected to association rule mining to determine the legitimate and phished URL.
-    
-    Figure 1: ![xyz](https://user-images.githubusercontent.com/55020540/212734883-42f7001c-9828-434a-a0bd-937cac76de68.png)
+Figure 1 shows the system architecture for detecting phishing URL. The foremost objective of this system is to identify an URL that is provided as input as a phished URL or
+not. The proposed method consists of two phases (1) URL search phase and (2) feature extraction phase. In the URL search phase, once the user accesses/requests an URL, a
+search is carried out to check whether the given URL is in the repository of legitimate
+URLs. If a match is found in the repository, then the URL is considered to be a legitimate
+URL. Otherwise the URL is not a legitimate URL and it undergoes the next phase. The
+main reason for carrying out the search phase before the feature extraction phase is it
+reduces the unnecessary computation during the feature extraction phase and improves
+the overall response time of the system. In the Feature extraction phase, we have defined
+heuristics to extract 14 features from the URL and are subjected to association rule mining to determine the legitimate and phished URL.
+
+Figure 1: ![xyz](https://user-images.githubusercontent.com/55020540/212734883-42f7001c-9828-434a-a0bd-937cac76de68.png)
     
     
 * Feature extraction
 
-    The proposed work focuses on identifying the relevant features that differentiate phishing websites from legitimate websites and then subjecting them to association rule
-    mining. In order to identify the relevant features, certain statistical investigations and
-    analysis were carried out on the phish tank (http://www.phishtank.com) and legitimate
-    dataset. Based on the heuristics, fourteen features were defined and are subjected to
-    association rule mining to effectively determine the legitimate and phished URL.
-    
-    
-        Heuristic 1: length of the host URL
-    
-            URL is a formatted text string utilized by internet users to recognize a network resource
-            on the Internet. URL string consists of three elements such as network protocol, host
-            name and path. For a given URL, the host name is extracted and host name length is
-            examined. For the input data set (1200 phishing URLs and 200 legitimate URLs), domain name length is analyzed for phishing and legitimate URLs. The distribution of the
-            domain name length for phished URL is plotted in Fig. 2 and the average length of the
-            domain name (ɭ) in phishing URL is found to be greater than 25 characters. The distribution of the domain name length for legitimate URL is plotted in Fig. 3 and the average
-            length of the domain name (ɭ) in legitimate URL is found to be 20 characters.
-            Therefore, the heuristic is defined as 
+The proposed work focuses on identifying the relevant features that differentiate phishing websites from legitimate websites and then subjecting them to association rule
+mining. In order to identify the relevant features, certain statistical investigations and
+analysis were carried out on the phish tank (http://www.phishtank.com) and legitimate
+dataset. Based on the heuristics, fourteen features were defined and are subjected to
+association rule mining to effectively determine the legitimate and phished URL.
 
-                    H1={ if length(host) > ɭ --> Phishing URL
+
+Heuristic 1: length of the host URL
+
+    URL is a formatted text string utilized by internet users to recognize a network resource
+    on the Internet. URL string consists of three elements such as network protocol, host
+    name and path. For a given URL, the host name is extracted and host name length is
+    examined. For the input data set (1200 phishing URLs and 200 legitimate URLs), domain name length is analyzed for phishing and legitimate URLs. The distribution of the
+    domain name length for phished URL is plotted in Fig. 2 and the average length of the
+    domain name (ɭ) in phishing URL is found to be greater than 25 characters. The distribution of the domain name length for legitimate URL is plotted in Fig. 3 and the average
+    length of the domain name (ɭ) in legitimate URL is found to be 20 characters.
+    Therefore, the heuristic is defined as 
+
+            H1={ if length(host) > ɭ --> Phishing URL
                                     else, Legitimate URL
 
