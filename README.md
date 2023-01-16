@@ -5,9 +5,7 @@ DL + ML: Malicious URL detection (Phishing URL) (Pinku)
 
 1. URL filtering: This involves comparing URLs against a database of known phishing sites.
 
-2. Email filtering: Email-based phishing attempts can be detected by analyzing the content of the email, such as the sender's address, the subject line,                       and the content of the message.
-
-3. Machine learning-based detection: This approach uses machine learning algorithms to analyze patterns in URLs and detect those that are likely to be                                           malicious.
+2. Machine learning-based detection: This approach uses machine learning algorithms to analyze patterns in URLs and detect those that are likely to be                                           malicious.
 
   *Phishing URL detection using machine learning involves training a model to identify patterns in URLs that are indicative of phishing. This can be done      using a variety of techniques, such as:
 
