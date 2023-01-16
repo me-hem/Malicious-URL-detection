@@ -20,16 +20,19 @@
     analysis were carried out on the phish tank (http://www.phishtank.com) and legitimate
     dataset. Based on the heuristics, fourteen features were defined and are subjected to
     association rule mining to effectively determine the legitimate and phished URL.
-    Heuristic 1: length of the host URL
-    URL is a formatted text string utilized by internet users to recognize a network resource
-    on the Internet. URL string consists of three elements such as network protocol, host
-    name and path. For a given URL, the host name is extracted and host name length is
-    examined. For the input data set (1200 phishing URLs and 200 legitimate URLs), domain name length is analyzed for phishing and legitimate URLs. The distribution of the
-    domain name length for phished URL is plotted in Fig. 2 and the average length of the
-    domain name (ɭ) in phishing URL is found to be greater than 25 characters. The distribution of the domain name length for legitimate URL is plotted in Fig. 3 and the average
-    length of the domain name (ɭ) in legitimate URL is found to be 20 characters.
-    Therefore, the heuristic is defined as 
     
-            H1={ if length(host) > ɭ --> Phishing URL
-                            else, Legitimate URL
+    
+        Heuristic 1: length of the host URL
+    
+            URL is a formatted text string utilized by internet users to recognize a network resource
+            on the Internet. URL string consists of three elements such as network protocol, host
+            name and path. For a given URL, the host name is extracted and host name length is
+            examined. For the input data set (1200 phishing URLs and 200 legitimate URLs), domain name length is analyzed for phishing and legitimate URLs. The distribution of the
+            domain name length for phished URL is plotted in Fig. 2 and the average length of the
+            domain name (ɭ) in phishing URL is found to be greater than 25 characters. The distribution of the domain name length for legitimate URL is plotted in Fig. 3 and the average
+            length of the domain name (ɭ) in legitimate URL is found to be 20 characters.
+            Therefore, the heuristic is defined as 
+
+                    H1={ if length(host) > ɭ --> Phishing URL
+                                    else, Legitimate URL
 
