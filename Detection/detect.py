@@ -17,12 +17,6 @@ def fd_length(url):
     except:
         return 0
 
-def tld_length(tld):
-    try:
-        return len(tld)
-    except:
-        return -1
-
 def extract_pri_domain(url):
     try:
         res = get_tld(url, as_object = True, fail_silently=False,fix_protocol=True)
@@ -31,6 +25,8 @@ def extract_pri_domain(url):
         pri_domain= None
     return pri_domain
 
+def count_http_https(url):
+    return url.lower().count('http') + url.lower().count('https')
 
 def count_letters(url):
     num_letters = sum(char.isalpha() for char in url)
@@ -348,15 +344,15 @@ def hash_encode(category):
 def preprocess(url):
     url_data = pd.DataFrame({'url': [url]})
     url_data['url'] = url_data['url'].replace('www.', '', regex=True)
-    url_data['url'].str.replace('http://|https://', '', regex=True)
+    url_data['url'] = url_data['url'].replace(r'^https?://', '', regex=True)
 
     url_data['url_len'] = url_data['url'].apply(len)
     url_data['hostname_length'] = url_data['url'].apply(lambda i: len(urlparse(i).netloc))
     url_data['path_length'] = url_data['url'].apply(lambda i: len(urlparse(i).path))
     url_data['fd_length'] = url_data['url'].apply(lambda i: fd_length(i))
-    url_data['tld'] = url_data['url'].apply(lambda i: get_tld(i,fail_silently=True))
-    url_data['tld_length'] = url_data['tld'].apply(lambda i: tld_length(i))
 
+    
+    url_data['http_count'] = url_data['url'].apply(count_http_https)
     url_data['pri_domain'] = url_data['url'].apply(lambda x: extract_pri_domain(x))
 
     url_data['letters_count'] =url_data['url'].apply(lambda x: count_letters(x))
@@ -377,7 +373,7 @@ def preprocess(url):
     url_data['url_region'] = url_data['pri_domain'].apply(lambda x: get_url_region(str(x)))
     url_data['root_domain'] = url_data['pri_domain'].apply(lambda x: extract_root_domain(str(x)))
 
-    data = url_data.drop(columns=['url','pri_domain', 'tld'])
+    data = url_data.drop(columns=['url','pri_domain'])
 
     data['root_domain'] = data['root_domain'].apply(hash_encode)
     data['url_region'] = data['url_region'].apply(hash_encode)
@@ -385,16 +381,13 @@ def preprocess(url):
     return data
 
 def predict(url):
-    model = pickle.load(open("E:\Dissertation\model.pkl", 'rb'))
+    model = pickle.load(open("E:\DataSet\model.pkl", 'rb'))
     data = preprocess(url)
     result = model.predict(data)
     return result
 
 if __name__ == "__main__":
     url = input("Enter URL to classify: ")
-    #url = "https://www.google.com"
-
-
     result = predict(url)[0]
     print()
     print("URL: ",url)
